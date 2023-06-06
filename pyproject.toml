@@ -1,0 +1,14 @@
+[project]
+name = "summarizer"
+version = "0.1.0"
+description = "A CLI tool that interacts with GPT-4 to summarize content"
+authors = [{ name = "Martin Breuss", email = "martin@realpython.com" }]
+
+    [project.urls]
+    Home = "https://realpython.com"
+
+    [project.scripts]
+    qwhizz = "summarizer.__main__:main"
+
+[tool.setuptools]
+py-modules = ["summarizer"]

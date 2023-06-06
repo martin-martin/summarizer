@@ -1,0 +1,8 @@
+[general]
+model = "gpt-4"
+
+[prompts]
+role_prompt = "You are a helpful assistant who is great at summarizing content and delivering the gist."
+instructions = """
+Summarize the text provided in >>>CONTENT<<< into two paragraphs:
+"""
