@@ -1,22 +1,25 @@
+import os
 from pathlib import Path
 import tomllib
 from typing import List
 
+from dotenv import load_dotenv
 import openai
 
-SECRETS_PATH = Path.cwd() / "summarizer" / "secrets.toml"
+
+# Authorization:
+# Add your API key to the .env file as OPENAI_API_KEY
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
 SETTINGS_PATH = Path.cwd() / "summarizer" / "settings.toml"
 
-with SECRETS_PATH.open(mode="rb") as secrets_file:
-    secrets = tomllib.load(secrets_file)
-    openai.api_key = secrets["OPENAI"]["api_key"]
+with SETTINGS_PATH.open(mode="rb") as settings_file:
+    settings = tomllib.load(settings_file)
 
-with SETTINGS_PATH.open(mode="rb") as fp:
-    config = tomllib.load(fp)
-
-MODEL = config["general"]["model"]  # gpt-4
-ROLE_PROMPT = config["prompts"]["role_prompt"]
-INSTRUCTIONS = config["prompts"]["instructions"]
+MODEL = settings["general"]["model"]  # gpt-4
+ROLE_PROMPT = settings["prompts"]["role_prompt"]
+INSTRUCTIONS = settings["prompts"]["instructions"]
 
 
 def _read_input_text(input_file: str) -> str:

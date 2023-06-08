@@ -8,9 +8,9 @@ frozenlist==1.3.3
 idna==3.4
 multidict==6.0.4
 openai==0.27.7
+python-dotenv==1.0.0
 requests==2.31.0
-# Editable install with no version control (summarizer==0.1.0)
--e /Users/martin/Documents/realpython/my-tutorials/prompting
+-e git+ssh://git@github.com/devcademy/summarizer.git@7bd14a8f12af3daaefb74262d2ebc68d0a48e1c6#egg=summarizer
 tqdm==4.65.0
 urllib3==2.0.2
 yarl==1.9.2
