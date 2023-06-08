@@ -4,16 +4,15 @@ Example scaffolding for a Python text completion project that uses the GPT-4 thr
 
 ## Setup
 
-Create a `secrets.toml` file with your OpenAI API key:
+Create a `.env` file with your OpenAI API key:
 
-```toml
-[OPENAI]
-api_key = "your-api-key"
+```
+OPENAI_API_KEY=your-api-key
 ```
 
 You can generate your [API key](https://platform.openai.com/account/api-keys) in your OpenAI account settings.
 
-Move the `secrets.ini` file into the `summarizer/` package folder.
+Move the `.env` file into the `summarizer/` package folder.
 
 ## Install
 
