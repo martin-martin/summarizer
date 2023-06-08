@@ -1,11 +1,10 @@
 import os
-from pathlib import Path
 import tomllib
+from pathlib import Path
 from typing import List
 
-from dotenv import load_dotenv
 import openai
-
+from dotenv import load_dotenv
 
 # Authorization:
 # Add your API key to the .env file as OPENAI_API_KEY
@@ -29,14 +28,19 @@ def _read_input_text(input_file: str) -> str:
         content = file.read()
     return content
 
+
 def _assemble_messages(content: str) -> List[dict]:
     """Combine all messages into a well-formatted dictionary."""
     messages = [
         {"role": "system", "content": ROLE_PROMPT},
-        {"role": "user", "content": f"CONTENT START>>>{content}<<<CONTENT END\n\n"},
+        {
+            "role": "user",
+            "content": f"CONTENT START>>>{content}<<<CONTENT END\n\n"
+        },
         {"role": "user", "content": INSTRUCTIONS},
     ]
     return messages
+
 
 def summarize(file: str, model: str = MODEL) -> str:
     """Assemble all prompts and send the API request."""
